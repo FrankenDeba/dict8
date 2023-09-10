@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import Input from "./comp/Input";
+import Output from "./comp/Output";
+import PhoneticCard from "./comp/PhoneticCard";
 
 function App() {
+  const [respObj, setRespObj] = useState({});
+
+  const callWordsApi = async (word) => {
+    const resp = await axios.get(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+    );
+
+    setRespObj(resp.data[0]);
+
+    console.log("The response is: ", resp);
+  };
+
+  useEffect(() => {
+    console.log({ respObj });
+  }, [respObj]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Input callWordsApi={callWordsApi} />
+      <Output dictionary={respObj} />
     </div>
   );
 }

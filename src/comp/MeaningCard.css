@@ -1,0 +1,51 @@
+.meaning_cont {
+  display: flex;
+  color: whitesmoke;
+  flex-direction: column;
+  /* border: 2px solid gray; */
+  width: 25vw;
+  align-items: flex-start;
+  padding: 15px 25px;
+  margin: 10px;
+  background-color: #219ebc;
+  box-shadow: 0 0 10px #ddd;
+  border-radius: 10px;
+}
+
+.meaning_cont p {
+  margin: 0;
+  padding: 0;
+}
+
+.pill {
+  padding: 5px 10px !important;
+  border-radius: 3px;
+  background-color: #023e8a;
+  margin: 5px !important;
+  color: #fff;
+}
+
+.pill_cont,
+.meaning {
+  display: flex;
+  align-items: center;
+  background-color: whitesmoke;
+  color: #023e8a;
+  min-width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 0 0 5px whitesmoke;
+}
+
+.meaning {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .meaning_cont {
+    width: 80vw;
+  }
+}
